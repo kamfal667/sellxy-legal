@@ -12,16 +12,16 @@ export function Pricing() {
       plans: [
         {
           name: 'Free',
-          price: '$0',
-          period: '/month',
+          price: '0',
+          period: ' FCFA/month',
           description: 'Get started',
           features: ['100 products', '1 user', 'Unlimited sales', 'Basic stats'],
           cta: 'Get started',
         },
         {
           name: 'Pro',
-          price: '$99',
-          period: '/month',
+          price: '20 000',
+          period: ' FCFA/month',
           description: 'Most popular',
           popular: true,
           features: ['Unlimited products', '5 users', 'Advanced analytics', 'CSV export', 'Priority support'],
@@ -29,8 +29,8 @@ export function Pricing() {
         },
         {
           name: 'Enterprise',
-          price: 'Custom',
-          period: ' pricing',
+          price: '40 000',
+          period: ' FCFA/month',
           description: 'For large volumes',
           features: ['Everything in Pro', 'Multi-store', 'API access', 'Custom integrations', 'Dedicated support'],
           cta: 'Contact us',
@@ -43,16 +43,16 @@ export function Pricing() {
       plans: [
         {
           name: 'Free',
-          price: '$0',
-          period: '/month',
+          price: '0',
+          period: ' FCFA/month',
           description: 'Get started',
           features: ['100 products', '1 user', 'Unlimited sales', 'Basic stats'],
           cta: 'Get started',
         },
         {
           name: 'Pro',
-          price: '$99',
-          period: '/month',
+          price: '20 000',
+          period: ' FCFA/month',
           description: 'Most popular',
           popular: true,
           features: ['Unlimited products', '5 users', 'Advanced analytics', 'CSV export', 'Priority support'],
@@ -60,8 +60,8 @@ export function Pricing() {
         },
         {
           name: 'Enterprise',
-          price: 'Custom',
-          period: ' pricing',
+          price: '40 000',
+          period: ' FCFA/month',
           description: 'For large volumes',
           features: ['Everything in Pro', 'Multi-store', 'API access', 'Custom integrations', 'Dedicated support'],
           cta: 'Contact us',

@@ -124,21 +124,66 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Screenshot */}
+        {/* Minimalist decoration */}
         <div style={{
-          border: '1px solid var(--border)',
-          borderRadius: 'var(--border-radius)',
-          overflow: 'hidden',
-          boxShadow: 'var(--shadow)',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 'var(--space-3)',
+          marginTop: 'var(--space-12)',
         }}>
-          <img
-            src="/screenshot-dashboard.png"
-            alt="SellXY Dashboard"
-            style={{
-              width: '100%',
-              display: 'block',
-            }}
-          />
+          <div style={{
+            padding: 'var(--space-6)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--border-radius)',
+            textAlign: 'center',
+          }}>
+            <div style={{
+              fontSize: '40px',
+              marginBottom: 'var(--space-2)',
+            }}>📦</div>
+            <div style={{
+              fontSize: 'var(--text-sm)',
+              color: 'var(--text-muted)',
+            }}>
+              {lang === 'fr' ? 'Inventaire complet' : 'Full Inventory'}
+            </div>
+          </div>
+
+          <div style={{
+            padding: 'var(--space-6)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--border-radius)',
+            textAlign: 'center',
+          }}>
+            <div style={{
+              fontSize: '40px',
+              marginBottom: 'var(--space-2)',
+            }}>💳</div>
+            <div style={{
+              fontSize: 'var(--text-sm)',
+              color: 'var(--text-muted)',
+            }}>
+              {lang === 'fr' ? 'Paiements rapides' : 'Fast Payments'}
+            </div>
+          </div>
+
+          <div style={{
+            padding: 'var(--space-6)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--border-radius)',
+            textAlign: 'center',
+          }}>
+            <div style={{
+              fontSize: '40px',
+              marginBottom: 'var(--space-2)',
+            }}>📊</div>
+            <div style={{
+              fontSize: 'var(--text-sm)',
+              color: 'var(--text-muted)',
+            }}>
+              {lang === 'fr' ? 'Analyses en temps réel' : 'Real-time Analytics'}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -32,27 +32,14 @@ export function Navbar() {
           fontWeight: 700,
           color: 'var(--text)',
         }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            background: 'var(--primary)',
-            borderRadius: '6px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <img
-              src="/icon.png"
-              alt="SellXY"
-              style={{
-                width: '24px',
-                height: '24px',
-                objectFit: 'contain',
-                filter: 'brightness(0) invert(1)',
-              }}
-            />
-          </div>
-          SellXY
+          <img
+            src="/logo.png"
+            alt="SellXY"
+            style={{
+              height: '40px',
+              objectFit: 'contain',
+            }}
+          />
         </a>
 
         {/* Navigation */}
