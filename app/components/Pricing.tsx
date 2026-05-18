@@ -7,7 +7,7 @@ export function Pricing() {
 
   const t = {
     fr: {
-      title: 'Tarification simple',
+      title: 'Tarification transparente',
       subtitle: 'Choisissez le forfait qui vous convient',
       popular: 'Le plus populaire',
       plans: [
@@ -18,6 +18,7 @@ export function Pricing() {
           description: 'Commencer',
           features: ['100 produits', '1 utilisateur', 'Ventes illimitées', 'Statistiques basiques'],
           cta: 'Commencer',
+          gradient: 'var(--gradient-blue)',
         },
         {
           name: 'Pro',
@@ -26,7 +27,8 @@ export function Pricing() {
           description: 'Le plus populaire',
           popular: true,
           features: ['Produits illimités', '5 utilisateurs', 'Analyses avancées', 'Export CSV', 'Support prioritaire'],
-          cta: 'Essayez gratuitement pendant 30 jours',
+          cta: 'Essayez gratuitement',
+          gradient: 'var(--gradient-sunset)',
         },
         {
           name: 'Entreprise',
@@ -35,12 +37,14 @@ export function Pricing() {
           description: 'Pour gros volumes',
           features: ['Tout dans Pro', 'Multi-magasins', 'Accès API', 'Intégrations personnalisées', 'Support dédié'],
           cta: 'Contactez-nous',
+          gradient: 'var(--gradient-purple)',
         },
       ],
     },
     en: {
-      title: 'Simple pricing',
+      title: 'Transparent pricing',
       subtitle: 'Choose the plan that fits you',
+      popular: 'Most popular',
       plans: [
         {
           name: 'Free',
@@ -49,6 +53,7 @@ export function Pricing() {
           description: 'Get started',
           features: ['100 products', '1 user', 'Unlimited sales', 'Basic stats'],
           cta: 'Get started',
+          gradient: 'var(--gradient-blue)',
         },
         {
           name: 'Pro',
@@ -58,6 +63,7 @@ export function Pricing() {
           popular: true,
           features: ['Unlimited products', '5 users', 'Advanced analytics', 'CSV export', 'Priority support'],
           cta: 'Try free for 30 days',
+          gradient: 'var(--gradient-sunset)',
         },
         {
           name: 'Enterprise',
@@ -66,6 +72,7 @@ export function Pricing() {
           description: 'For large volumes',
           features: ['Everything in Pro', 'Multi-store', 'API access', 'Custom integrations', 'Dedicated support'],
           cta: 'Contact us',
+          gradient: 'var(--gradient-purple)',
         },
       ],
     },
@@ -86,8 +93,11 @@ export function Pricing() {
         }}>
           <h2 style={{
             fontSize: 'var(--text-5xl)',
-            fontWeight: 700,
-            color: 'var(--text)',
+            fontWeight: 800,
+            background: 'var(--gradient-sunset)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
             margin: '0 0 var(--space-3)',
           }}>
             {tx.title}
@@ -101,65 +111,83 @@ export function Pricing() {
           </p>
         </div>
 
-        {/* Grid */}
+        {/* Pricing Cards Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: 'var(--space-3)',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 'var(--space-4)',
         }}>
           {tx.plans.map((plan, idx) => (
             <div
               key={idx}
               style={{
-                padding: 'var(--space-6)',
-                background: plan.popular ? 'var(--bg)' : 'var(--bg-secondary)',
-                border: plan.popular ? '3px solid var(--primary)' : '1px solid var(--border)',
-                borderRadius: 'var(--border-radius)',
+                padding: 'var(--space-8)',
+                background: 'white',
+                border: plan.popular ? '3px solid transparent' : '1px solid var(--border)',
+                borderImage: plan.popular ? `${plan.gradient} 1` : undefined,
+                borderRadius: 'var(--radius-lg)',
                 position: 'relative',
-                transform: plan.popular ? 'translateY(-8px)' : 'translateY(0)',
-                transition: 'all 0.2s',
+                transform: plan.popular ? 'translateY(-20px) scale(1.05)' : 'translateY(0)',
+                boxShadow: plan.popular ? `0 20px 60px rgba(0,0,0,0.15), ${plan.gradient === 'var(--gradient-sunset)' ? '0 0 40px rgba(249, 115, 22, 0.3)' : '0 0 40px rgba(59, 130, 246, 0.3)'}` : 'var(--shadow-md)',
+                transition: 'all 0.3s ease',
+                animation: plan.popular ? 'glow-pulse 3s ease-in-out infinite' : 'none',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = plan.popular ? 'translateY(-24px) scale(1.05)' : 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = plan.popular ? `0 24px 80px rgba(0,0,0,0.2)` : 'var(--shadow-lg)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = plan.popular ? 'translateY(-20px) scale(1.05)' : 'translateY(0)';
+                e.currentTarget.style.boxShadow = plan.popular ? `0 20px 60px rgba(0,0,0,0.15)` : 'var(--shadow-md)';
               }}
             >
               {/* Badge */}
               {plan.popular && (
                 <div style={{
                   position: 'absolute',
-                  top: 'var(--space-3)',
-                  right: 'var(--space-3)',
-                  padding: '2px 8px',
-                  background: 'var(--primary)',
+                  top: '-12px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: `linear-gradient(135deg, #F97316, #EC4899)`,
                   color: 'white',
-                  borderRadius: '4px',
+                  padding: '4px 16px',
+                  borderRadius: '20px',
                   fontSize: 'var(--text-xs)',
-                  fontWeight: 600,
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  boxShadow: 'var(--shadow-primary)',
                 }}>
-                  {lang === 'fr' ? 'Populaire' : 'Popular'}
+                  {tx.popular}
                 </div>
               )}
 
-              {/* Plan name */}
+              {/* Plan Name */}
               <div style={{
                 fontSize: 'var(--text-sm)',
-                fontWeight: 600,
+                fontWeight: 700,
                 color: 'var(--text-muted)',
-                marginBottom: 'var(--space-2)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
+                marginBottom: 'var(--space-3)',
               }}>
                 {plan.name}
               </div>
 
               {/* Price */}
-              <div style={{ marginBottom: 'var(--space-4)' }}>
+              <div style={{ marginBottom: 'var(--space-6)' }}>
                 <span style={{
-                  fontSize: 'var(--text-5xl)',
-                  fontWeight: 700,
-                  color: 'var(--text)',
+                  fontSize: '48px',
+                  fontWeight: 800,
+                  background: plan.gradient,
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}>
                   {plan.price}
                 </span>
                 <span style={{
-                  fontSize: 'var(--text-base)',
+                  fontSize: 'var(--text-sm)',
                   color: 'var(--text-muted)',
                   marginLeft: 'var(--space-1)',
                 }}>
@@ -167,41 +195,49 @@ export function Pricing() {
                 </span>
               </div>
 
-              {/* CTA */}
+              {/* Description */}
+              <p style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                margin: '0 0 var(--space-6)',
+              }}>
+                {plan.description}
+              </p>
+
+              {/* CTA Button */}
               <button style={{
                 width: '100%',
-                padding: '12px',
-                background: plan.popular ? 'var(--primary)' : 'transparent',
+                padding: '12px 24px',
+                background: plan.popular ? plan.gradient : 'transparent',
                 color: plan.popular ? 'white' : 'var(--text)',
-                border: plan.popular ? 'none' : '1px solid var(--border)',
-                borderRadius: 'var(--border-radius)',
+                border: plan.popular ? 'none' : `2px solid var(--primary)`,
+                borderRadius: 'var(--radius-lg)',
                 fontSize: 'var(--text-sm)',
-                fontWeight: 500,
+                fontWeight: 600,
                 cursor: 'pointer',
-                marginBottom: 'var(--space-4)',
-                transition: 'all 0.2s',
+                marginBottom: 'var(--space-6)',
+                transition: 'all 0.3s ease',
+                boxShadow: plan.popular ? 'var(--shadow-primary)' : 'none',
               }}
               onMouseEnter={(e) => {
                 if (plan.popular) {
-                  e.currentTarget.style.opacity = '0.9';
+                  e.currentTarget.style.transform = 'scale(1.05)';
                 } else {
-                  e.currentTarget.style.background = 'rgba(249, 115, 22, 0.05)';
-                  e.currentTarget.style.borderColor = 'var(--primary)';
+                  e.currentTarget.style.background = 'rgba(249, 115, 22, 0.1)';
+                  e.currentTarget.style.transform = 'scale(1.05)';
                 }
               }}
               onMouseLeave={(e) => {
-                if (plan.popular) {
-                  e.currentTarget.style.opacity = '1';
-                } else {
+                e.currentTarget.style.transform = 'scale(1)';
+                if (!plan.popular) {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.borderColor = 'var(--border)';
                 }
               }}
               >
                 {plan.cta}
               </button>
 
-              {/* Features */}
+              {/* Features List */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -221,8 +257,11 @@ export function Pricing() {
                     <span style={{
                       color: 'var(--primary)',
                       fontWeight: 'bold',
-                      minWidth: '20px',
-                    }}>✓</span>
+                      fontSize: '18px',
+                      lineHeight: 1,
+                    }}>
+                      ✓
+                    </span>
                     <span>{feature}</span>
                   </div>
                 ))}

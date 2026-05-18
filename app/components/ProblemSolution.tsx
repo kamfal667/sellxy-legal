@@ -7,17 +7,17 @@ export function ProblemSolution() {
 
   const t = {
     fr: {
-      title: 'Le problème des commerçants',
-      problem: 'Gérer son commerce sans outils adaptés',
+      title: 'Le problème et la solution',
+      problem: 'Le problème des commerçants',
       problemDesc: 'Sans système de gestion intégré, vous perdez du temps à jongler entre plusieurs applications, vous risquez des erreurs de stock et vous n\'avez aucune visibilité sur vos ventes en temps réel.',
-      solution: 'SellXY : votre assistant commercial complet',
+      solution: 'SellXY : votre solution',
       solutionDesc: 'Un seul endroit pour gérer votre inventaire, traiter les ventes, suivre les commandes et analyser vos performances. Tout depuis votre téléphone, sans équipement coûteux.',
     },
     en: {
-      title: 'The merchant\'s problem',
-      problem: 'Managing your business without proper tools',
+      title: 'The problem and the solution',
+      problem: 'The merchant\'s challenge',
       problemDesc: 'Without an integrated management system, you waste time juggling multiple apps, risk inventory errors, and have no real-time visibility into your sales.',
-      solution: 'SellXY: your complete business assistant',
+      solution: 'SellXY: Your solution',
       solutionDesc: 'One place to manage your inventory, process sales, track orders, and analyze performance. All from your phone, without expensive equipment.',
     },
   };
@@ -26,97 +26,90 @@ export function ProblemSolution() {
 
   return (
     <section style={{
-      padding: 'var(--space-16) var(--space-3)',
-      background: 'var(--bg-secondary)',
+      position: 'relative',
+      background: 'var(--bg)',
+      overflow: 'hidden',
+      minHeight: '600px',
+      display: 'flex',
+      alignItems: 'stretch',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      {/* Problem side - Violet gradient */}
+      <div style={{
+        flex: 1,
+        background: 'var(--gradient-purple)',
+        padding: 'var(--space-12) var(--space-6)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        color: 'white',
+        clipPath: 'polygon(0 0, 85% 0, 75% 100%, 0 100%)',
+        position: 'relative',
+        zIndex: 1,
+      }}>
+        <div style={{ fontSize: '60px', marginBottom: 'var(--space-4)' }}>⚠️</div>
         <h2 style={{
           fontSize: 'var(--text-4xl)',
-          fontWeight: 700,
-          color: 'var(--text)',
-          marginBottom: 'var(--space-12)',
-          textAlign: 'center',
+          fontWeight: 800,
+          margin: '0 0 var(--space-4)',
+          lineHeight: 1.2,
         }}>
-          {tx.title}
+          {tx.problem}
         </h2>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.1fr',
-          gap: 'var(--space-8)',
-          alignItems: 'stretch',
+        <p style={{
+          fontSize: 'var(--text-lg)',
+          lineHeight: 1.8,
+          margin: 0,
+          maxWidth: '500px',
+          opacity: 0.95,
         }}>
-          {/* Problem */}
-          <div style={{
-            padding: 'var(--space-6)',
-            background: 'var(--bg)',
-            border: '1px solid var(--border)',
-            borderRadius: 'var(--border-radius)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-          }}>
-            <div style={{
-              fontSize: '48px',
-              marginBottom: 'var(--space-3)',
-            }}>
-              ⚠️
-            </div>
-            <h3 style={{
-              fontSize: 'var(--text-2xl)',
-              fontWeight: 600,
-              color: 'var(--text)',
-              margin: '0 0 var(--space-3)',
-            }}>
-              {tx.problem}
-            </h3>
-            <p style={{
-              fontSize: 'var(--text-base)',
-              color: 'var(--text-muted)',
-              lineHeight: 1.8,
-              margin: 0,
-            }}>
-              {tx.problemDesc}
-            </p>
-          </div>
-
-          {/* Solution */}
-          <div style={{
-            padding: 'var(--space-6)',
-            border: '3px solid var(--primary)',
-            borderRadius: 'var(--border-radius)',
-            background: 'var(--bg)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            position: 'relative',
-            top: '-4px',
-          }}>
-            <div style={{
-              fontSize: '48px',
-              marginBottom: 'var(--space-3)',
-            }}>
-              ✅
-            </div>
-            <h3 style={{
-              fontSize: 'var(--text-2xl)',
-              fontWeight: 600,
-              color: 'var(--primary)',
-              margin: '0 0 var(--space-3)',
-            }}>
-              {tx.solution}
-            </h3>
-            <p style={{
-              fontSize: 'var(--text-base)',
-              color: 'var(--text-muted)',
-              lineHeight: 1.8,
-              margin: 0,
-            }}>
-              {tx.solutionDesc}
-            </p>
-          </div>
-        </div>
+          {tx.problemDesc}
+        </p>
       </div>
+
+      {/* Solution side - Orange gradient */}
+      <div style={{
+        flex: 1,
+        background: 'var(--gradient-orange)',
+        padding: 'var(--space-12) var(--space-6)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        color: 'white',
+        clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 25% 100%)',
+        boxShadow: 'var(--shadow-primary)',
+      }}>
+        <div style={{ fontSize: '60px', marginBottom: 'var(--space-4)' }}>✅</div>
+        <h2 style={{
+          fontSize: 'var(--text-4xl)',
+          fontWeight: 800,
+          margin: '0 0 var(--space-4)',
+          lineHeight: 1.2,
+        }}>
+          {tx.solution}
+        </h2>
+        <p style={{
+          fontSize: 'var(--text-lg)',
+          lineHeight: 1.8,
+          margin: 0,
+          maxWidth: '500px',
+          opacity: 0.95,
+        }}>
+          {tx.solutionDesc}
+        </p>
+      </div>
+
+      {/* Animated divider line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        width: '2px',
+        height: '100%',
+        background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.5), transparent)',
+        animation: 'pulse 3s ease-in-out infinite',
+      }} />
     </section>
   );
 }

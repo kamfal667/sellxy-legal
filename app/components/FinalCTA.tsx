@@ -28,60 +28,109 @@ export function FinalCTA() {
 
   return (
     <section style={{
-      padding: 'var(--space-16) var(--space-3)',
-      background: 'var(--bg-secondary)',
-      textAlign: 'center',
+      position: 'relative',
+      background: 'var(--bg)',
+      overflow: 'hidden',
+      minHeight: '500px',
+      display: 'flex',
+      alignItems: 'center',
     }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      {/* Left side - Orange/Pink gradient */}
+      <div style={{
+        flex: 1,
+        background: 'var(--gradient-sunset)',
+        padding: 'var(--space-12) var(--space-6)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        color: 'white',
+        clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)',
+        position: 'relative',
+        zIndex: 1,
+      }}>
         <h2 style={{
           fontSize: 'var(--text-4xl)',
-          fontWeight: 700,
-          color: 'var(--text)',
-          margin: '0 0 var(--space-3)',
+          fontWeight: 800,
+          margin: '0 0 var(--space-4)',
+          lineHeight: 1.2,
+          maxWidth: '500px',
         }}>
           {tx.title}
         </h2>
-
         <p style={{
           fontSize: 'var(--text-lg)',
-          color: 'var(--text-muted)',
+          lineHeight: 1.8,
           margin: '0 0 var(--space-6)',
-          lineHeight: 1.6,
+          maxWidth: '450px',
+          opacity: 0.95,
         }}>
           {tx.subtitle}
         </p>
+      </div>
 
+      {/* Right side - Purple/Blue gradient */}
+      <div style={{
+        flex: 1,
+        background: 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)',
+        padding: 'var(--space-12) var(--space-6)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'white',
+        textAlign: 'center',
+        clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)',
+      }}>
         <button style={{
-          padding: 'var(--space-4) var(--space-8)',
-          background: 'var(--primary)',
-          color: 'white',
+          padding: '16px 40px',
+          background: 'white',
+          color: 'var(--primary)',
           border: 'none',
-          borderRadius: 'var(--border-radius)',
-          fontSize: 'var(--text-lg)',
-          fontWeight: 600,
+          borderRadius: 'var(--radius-lg)',
+          fontSize: 'var(--text-base)',
+          fontWeight: 700,
           cursor: 'pointer',
-          transition: 'opacity 0.2s',
+          marginBottom: 'var(--space-6)',
+          boxShadow: 'var(--shadow-lg)',
+          transition: 'all 0.3s ease',
         }}
-        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
-        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.08)';
+          e.currentTarget.style.boxShadow = '0 16px 64px rgba(0, 0, 0, 0.25)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+        }}
         >
-          {tx.cta}
+          {tx.cta} →
         </button>
 
         {/* Benefits */}
         <div style={{
           display: 'flex',
-          gap: 'var(--space-6)',
-          justifyContent: 'center',
-          marginTop: 'var(--space-6)',
+          flexDirection: 'column',
+          gap: 'var(--space-2)',
           fontSize: 'var(--text-sm)',
-          color: 'var(--text-muted)',
+          opacity: 0.9,
         }}>
           <div>{tx.benefit1}</div>
           <div>{tx.benefit2}</div>
           <div>{tx.benefit3}</div>
         </div>
       </div>
+
+      {/* Animated divider */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        width: '2px',
+        height: '100%',
+        background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent)',
+        animation: 'pulse 3s ease-in-out infinite',
+      }} />
     </section>
   );
 }
