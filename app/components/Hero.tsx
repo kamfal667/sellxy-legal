@@ -9,15 +9,15 @@ export function Hero() {
     fr: {
       headline: 'Gérez votre commerce en toute simplicité',
       subheadline: 'SellXY centralise votre inventaire, vos ventes et vos statistiques dans une seule app mobile.',
-      cta: 'Download the app',
-      demo: 'Watch demo',
-      badge: 'Coming soon',
+      cta: 'Télécharger l\'app',
+      demo: 'En savoir plus',
+      badge: 'Bientôt disponible',
     },
     en: {
       headline: 'Manage your business effortlessly',
       subheadline: 'SellXY centralizes your inventory, sales, and analytics in a single mobile app.',
       cta: 'Download the app',
-      demo: 'Watch demo',
+      demo: 'Learn more',
       badge: 'Coming soon',
     },
   };
@@ -85,8 +85,8 @@ export function Hero() {
         }}>
           <button style={{
             padding: '12px 24px',
-            background: 'var(--text)',
-            color: 'var(--bg)',
+            background: 'var(--primary)',
+            color: 'white',
             border: 'none',
             borderRadius: 'var(--border-radius)',
             fontSize: 'var(--text-base)',
@@ -94,7 +94,7 @@ export function Hero() {
             cursor: 'pointer',
             transition: 'opacity 0.2s',
           }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
           onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
             {tx.cta} →
@@ -112,8 +112,8 @@ export function Hero() {
             transition: 'all 0.2s',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'var(--text)';
-            e.currentTarget.style.background = 'var(--border)';
+            e.currentTarget.style.borderColor = 'var(--primary)';
+            e.currentTarget.style.background = 'rgba(249, 115, 22, 0.05)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = 'var(--border)';

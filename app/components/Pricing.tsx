@@ -167,8 +167,8 @@ export function Pricing() {
               <button style={{
                 width: '100%',
                 padding: '12px',
-                background: plan.popular ? 'var(--text)' : 'transparent',
-                color: plan.popular ? 'var(--bg)' : 'var(--text)',
+                background: plan.popular ? 'var(--primary)' : 'transparent',
+                color: plan.popular ? 'white' : 'var(--text)',
                 border: plan.popular ? 'none' : '1px solid var(--border)',
                 borderRadius: 'var(--border-radius)',
                 fontSize: 'var(--text-sm)',
@@ -179,9 +179,10 @@ export function Pricing() {
               }}
               onMouseEnter={(e) => {
                 if (plan.popular) {
-                  e.currentTarget.style.opacity = '0.8';
+                  e.currentTarget.style.opacity = '0.9';
                 } else {
-                  e.currentTarget.style.background = 'var(--border)';
+                  e.currentTarget.style.background = 'rgba(249, 115, 22, 0.05)';
+                  e.currentTarget.style.borderColor = 'var(--primary)';
                 }
               }}
               onMouseLeave={(e) => {
@@ -189,6 +190,7 @@ export function Pricing() {
                   e.currentTarget.style.opacity = '1';
                 } else {
                   e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.borderColor = 'var(--border)';
                 }
               }}
               >

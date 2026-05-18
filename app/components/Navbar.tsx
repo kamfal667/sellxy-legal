@@ -28,15 +28,12 @@ export function Navbar() {
           display: 'flex',
           alignItems: 'center',
           gap: 'var(--space-2)',
-          fontSize: 'var(--text-xl)',
-          fontWeight: 700,
-          color: 'var(--text)',
         }}>
           <img
             src="/logo.png"
             alt="SellXY"
             style={{
-              height: '40px',
+              height: '50px',
               objectFit: 'contain',
             }}
           />
@@ -110,8 +107,8 @@ export function Navbar() {
           {/* CTA */}
           <button style={{
             padding: '8px 16px',
-            background: 'var(--text)',
-            color: 'var(--bg)',
+            background: 'var(--primary)',
+            color: 'white',
             border: 'none',
             borderRadius: 'var(--border-radius)',
             fontSize: 'var(--text-sm)',
@@ -119,10 +116,10 @@ export function Navbar() {
             cursor: 'pointer',
             transition: 'opacity 0.2s',
           }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
           onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Download
+            {lang === 'fr' ? 'Télécharger' : 'Download'}
           </button>
         </div>
       </div>

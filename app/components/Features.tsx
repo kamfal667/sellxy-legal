@@ -113,7 +113,7 @@ export function Features() {
         {/* Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 'var(--space-3)',
         }}>
           {tx.features.map((feature, idx) => (
@@ -133,7 +133,7 @@ export function Features() {
               }}
             >
               <div style={{
-                fontSize: '32px',
+                fontSize: '40px',
                 marginBottom: 'var(--space-3)',
               }}>
                 {feature.icon}
