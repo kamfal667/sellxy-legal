@@ -252,13 +252,25 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '8px',
-                    background: 'var(--bg)',
+                    padding: '14px 18px',
+                    border: '1px solid rgba(249,115,22,0.2)',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
                     color: 'var(--text)',
-                    fontSize: '14px',
+                    fontSize: '15px',
                     boxSizing: 'border-box',
+                    transition: 'all 0.3s',
+                    boxShadow: 'var(--shadow-sm)',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--primary)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                   }}
                   placeholder={lang === 'fr' ? 'Votre nom' : 'Your name'}
                 />
@@ -283,13 +295,25 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '8px',
-                    background: 'var(--bg)',
+                    padding: '14px 18px',
+                    border: '1px solid rgba(249,115,22,0.2)',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
                     color: 'var(--text)',
-                    fontSize: '14px',
+                    fontSize: '15px',
                     boxSizing: 'border-box',
+                    transition: 'all 0.3s',
+                    boxShadow: 'var(--shadow-sm)',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--primary)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                   }}
                   placeholder={lang === 'fr' ? 'votre@email.com' : 'your@email.com'}
                 />
@@ -314,13 +338,25 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '8px',
-                    background: 'var(--bg)',
+                    padding: '14px 18px',
+                    border: '1px solid rgba(249,115,22,0.2)',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
                     color: 'var(--text)',
-                    fontSize: '14px',
+                    fontSize: '15px',
                     boxSizing: 'border-box',
+                    transition: 'all 0.3s',
+                    boxShadow: 'var(--shadow-sm)',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--primary)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                   }}
                   placeholder={lang === 'fr' ? 'Sujet de votre message' : 'Message subject'}
                 />
@@ -345,14 +381,26 @@ export default function Contact() {
                   rows={5}
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '8px',
-                    background: 'var(--bg)',
+                    padding: '14px 18px',
+                    border: '1px solid rgba(249,115,22,0.2)',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
                     color: 'var(--text)',
-                    fontSize: '14px',
+                    fontSize: '15px',
                     boxSizing: 'border-box',
                     fontFamily: 'inherit',
+                    transition: 'all 0.3s',
+                    boxShadow: 'var(--shadow-sm)',
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--primary)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                   }}
                   placeholder={lang === 'fr' ? 'Votre message...' : 'Your message...'}
                 />

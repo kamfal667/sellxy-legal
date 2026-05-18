@@ -44,10 +44,24 @@ export function Footer() {
 
   return (
     <footer style={{
-      background: 'var(--bg-card)',
-      borderTop: '1px solid var(--border)',
-      padding: '60px 20px 40px',
+      background: 'linear-gradient(to bottom, var(--bg) 0%, var(--bg-card) 50%)',
+      borderTop: '1px solid rgba(249,115,22,0.1)',
+      padding: '80px 20px 40px',
+      position: 'relative',
+      overflow: 'hidden',
     }}>
+      {/* Decorative gradient orb */}
+      <div style={{
+        position: 'absolute',
+        bottom: '-200px',
+        right: '-100px',
+        width: '500px',
+        height: '500px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(249,115,22,0.08), transparent 70%)',
+        filter: 'blur(80px)',
+        pointerEvents: 'none',
+      }} />
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{
           display: 'grid',
@@ -227,44 +241,60 @@ export function Footer() {
             gap: '24px',
           }}>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{
-              width: '32px',
-              height: '32px',
+              width: '40px',
+              height: '40px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'var(--primary-light)',
-              borderRadius: '8px',
+              background: 'rgba(249,115,22,0.1)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              borderRadius: '10px',
+              border: '1px solid rgba(249,115,22,0.2)',
               color: 'var(--primary)',
               textDecoration: 'none',
-              fontSize: '16px',
-              transition: 'all 0.2s',
+              fontSize: '18px',
+              transition: 'all 0.3s',
+              boxShadow: 'var(--shadow-sm)',
             }} onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--primary)';
+              e.currentTarget.style.background = 'linear-gradient(135deg, #F97316, #EA580C)';
               e.currentTarget.style.color = 'white';
+              e.currentTarget.style.transform = 'translateY(-3px) rotate(5deg)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-primary)';
             }} onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'var(--primary-light)';
+              e.currentTarget.style.background = 'rgba(249,115,22,0.1)';
               e.currentTarget.style.color = 'var(--primary)';
+              e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
             }}>
               𝕏
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{
-              width: '32px',
-              height: '32px',
+              width: '40px',
+              height: '40px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'var(--primary-light)',
-              borderRadius: '8px',
+              background: 'rgba(249,115,22,0.1)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              borderRadius: '10px',
+              border: '1px solid rgba(249,115,22,0.2)',
               color: 'var(--primary)',
               textDecoration: 'none',
-              fontSize: '16px',
-              transition: 'all 0.2s',
+              fontSize: '18px',
+              transition: 'all 0.3s',
+              boxShadow: 'var(--shadow-sm)',
             }} onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--primary)';
+              e.currentTarget.style.background = 'linear-gradient(135deg, #F97316, #EA580C)';
               e.currentTarget.style.color = 'white';
+              e.currentTarget.style.transform = 'translateY(-3px) rotate(-5deg)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-primary)';
             }} onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'var(--primary-light)';
+              e.currentTarget.style.background = 'rgba(249,115,22,0.1)';
               e.currentTarget.style.color = 'var(--primary)';
+              e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
             }}>
               in
             </a>

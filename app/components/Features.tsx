@@ -115,41 +115,90 @@ export function Features() {
           gap: '24px',
         }}>
           {tx.features.map((feature, idx) => (
-            <div key={idx} style={{
-              padding: '32px 24px',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border)',
-              borderRadius: '16px',
-              transition: 'all 0.3s',
-              cursor: 'pointer',
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--primary)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
-              e.currentTarget.style.transform = 'translateY(-4px)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--border)';
-              e.currentTarget.style.boxShadow = 'none';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}>
-              <div style={{ fontSize: '40px', marginBottom: '16px' }}>
+            <div
+              key={idx}
+              style={{
+                padding: '40px 32px',
+                background: 'rgba(255, 255, 255, 0.6)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(249,115,22,0.15)',
+                borderRadius: '20px',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-md)',
+                animation: `fadeInUp 0.6s ease-out ${idx * 0.1}s both`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--primary)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-xl), var(--glow-primary)';
+                e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(249,115,22,0.15)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.6)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              }}
+            >
+              {/* Gradient hover effect overlay */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: '-100%',
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(90deg, transparent, rgba(249,115,22,0.05), transparent)',
+                transition: 'left 0.5s',
+                pointerEvents: 'none',
+              }} />
+
+              {/* Icon with gradient background */}
+              <div style={{
+                fontSize: '48px',
+                marginBottom: '20px',
+                display: 'inline-block',
+                padding: '16px',
+                background: 'linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.10))',
+                borderRadius: '16px',
+                boxShadow: 'inset 0 2px 8px rgba(249,115,22,0.1)',
+              }}>
                 {feature.icon}
               </div>
+
               <h3 style={{
-                fontSize: '18px',
+                fontSize: '20px',
                 fontWeight: 700,
                 color: 'var(--text)',
                 margin: '0 0 12px',
+                letterSpacing: '-0.01em',
               }}>
                 {feature.title}
               </h3>
+
               <p style={{
-                fontSize: '14px',
+                fontSize: '15px',
                 color: 'var(--text-muted)',
                 margin: 0,
-                lineHeight: 1.6,
+                lineHeight: 1.7,
               }}>
                 {feature.desc}
               </p>
+
+              {/* Bottom accent line */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '3px',
+                background: 'linear-gradient(90deg, transparent, var(--primary), transparent)',
+                opacity: 0,
+                transition: 'opacity 0.3s',
+              }} />
             </div>
           ))}
         </div>

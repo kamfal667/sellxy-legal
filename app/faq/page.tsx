@@ -17,11 +17,17 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
         <div
           key={idx}
           style={{
-            border: '1px solid var(--border)',
-            borderRadius: '12px',
+            border: '1px solid rgba(249,115,22,0.15)',
+            borderRadius: '16px',
             overflow: 'hidden',
             transition: 'all 0.3s',
-            borderColor: openIndex === idx ? 'var(--primary)' : 'var(--border)',
+            borderColor: openIndex === idx ? 'var(--primary)' : 'rgba(249,115,22,0.15)',
+            boxShadow: openIndex === idx
+              ? 'var(--shadow-lg), var(--glow-primary)'
+              : 'var(--shadow-sm)',
+            background: 'rgba(255, 255, 255, 0.6)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
           }}
         >
           <button

@@ -38,10 +38,13 @@ export function Navbar() {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: 'var(--bg-card)',
-      borderBottom: '1px solid var(--border)',
-      boxShadow: '0 1px 8px rgba(249,115,22,0.07)',
+      background: 'rgba(255, 255, 255, 0.8)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+      borderBottom: '1px solid rgba(249,115,22,0.15)',
+      boxShadow: 'var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.5)',
       padding: '0 20px',
+      transition: 'all 0.3s',
     }}>
       <div style={{
         maxWidth: '1200px',
@@ -54,24 +57,48 @@ export function Navbar() {
         {/* Logo */}
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
           <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '10px',
+            width: '44px',
+            height: '44px',
+            borderRadius: '12px',
             background: 'linear-gradient(135deg, #F97316, #EA580C)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(249,115,22,0.35)',
+            boxShadow: 'var(--shadow-primary)',
+            position: 'relative',
+            overflow: 'hidden',
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M3 3h18v2H3V3zm0 4h12v2H3V7zm0 4h18v2H3v-2zm0 4h12v2H3v-2zm0 4h18v2H3v-2z" fill="white" opacity="0.3"/>
-              <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" strokeWidth="1.5" fill="none"/>
-              <path d="M7 8l3 3-3 3M12 14h5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img
+              src="/icon.png"
+              alt="SellXY Logo"
+              style={{
+                width: '32px',
+                height: '32px',
+                objectFit: 'contain',
+              }}
+            />
           </div>
           <div>
-            <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>SellXY</div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em', lineHeight: 1.2 }}>STOCKS</div>
+            <div style={{
+              fontSize: '16px',
+              fontWeight: 800,
+              background: 'linear-gradient(135deg, #F97316, #EA580C)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              lineHeight: 1,
+            }}>
+              SellXY
+            </div>
+            <div style={{
+              fontSize: '10px',
+              color: 'var(--text-muted)',
+              letterSpacing: '0.1em',
+              lineHeight: 1.2,
+              fontWeight: 600,
+            }}>
+              STOCKS
+            </div>
           </div>
         </a>
 
