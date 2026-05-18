@@ -12,69 +12,57 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
       {items.map((item, idx) => (
         <div
           key={idx}
           style={{
-            border: '1px solid rgba(249,115,22,0.15)',
-            borderRadius: '16px',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--border-radius)',
             overflow: 'hidden',
-            transition: 'all 0.3s',
-            borderColor: openIndex === idx ? 'var(--primary)' : 'rgba(249,115,22,0.15)',
-            boxShadow: openIndex === idx
-              ? 'var(--shadow-lg), var(--glow-primary)'
-              : 'var(--shadow-sm)',
-            background: 'rgba(255, 255, 255, 0.6)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
+            transition: 'border-color 0.2s',
+            borderColor: openIndex === idx ? 'var(--primary)' : 'var(--border)',
           }}
         >
           <button
             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
             style={{
               width: '100%',
-              padding: '16px 20px',
-              background: 'var(--bg-card)',
+              padding: 'var(--space-3)',
+              background: 'var(--bg)',
               border: 'none',
               cursor: 'pointer',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               textAlign: 'left',
-              fontSize: '15px',
-              fontWeight: 600,
+              fontSize: 'var(--text-base)',
+              fontWeight: 500,
               color: 'var(--text)',
               transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--bg)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'var(--bg-card)';
             }}
           >
             <span>{item.q}</span>
             <span
               style={{
-                transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0deg)',
-                transition: 'transform 0.3s',
-                color: 'var(--primary)',
+                fontSize: 'var(--text-sm)',
+                fontWeight: 600,
+                color: 'var(--text-muted)',
               }}
             >
-              ▼
+              {openIndex === idx ? '−' : '+'}
             </span>
           </button>
 
           {openIndex === idx && (
             <div
               style={{
-                padding: '16px 20px',
+                padding: 'var(--space-3)',
                 background: 'var(--bg)',
                 borderTop: '1px solid var(--border)',
-                fontSize: '14px',
+                fontSize: 'var(--text-sm)',
                 color: 'var(--text-muted)',
-                lineHeight: 1.7,
+                lineHeight: 1.6,
               }}
             >
               {item.a}
@@ -235,28 +223,28 @@ export default function FAQ() {
       <main>
         <section
           style={{
-            padding: '80px 20px',
+            padding: 'var(--space-20) var(--space-3)',
             background: 'var(--bg)',
           }}
         >
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-12)' }}>
               <h1
                 style={{
-                  fontSize: 'clamp(28px, 5vw, 44px)',
-                  fontWeight: 800,
+                  fontSize: 'var(--text-5xl)',
+                  fontWeight: 700,
                   color: 'var(--text)',
-                  margin: '0 0 16px',
+                  margin: '0 0 var(--space-3)',
                 }}
               >
                 {tx.title}
               </h1>
               <p
                 style={{
-                  fontSize: '18px',
+                  fontSize: 'var(--text-lg)',
                   color: 'var(--text-muted)',
                   margin: 0,
-                  maxWidth: '500px',
+                  maxWidth: '600px',
                   marginLeft: 'auto',
                   marginRight: 'auto',
                 }}

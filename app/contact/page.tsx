@@ -85,28 +85,28 @@ export default function Contact() {
     <main>
       <section
         style={{
-          padding: '80px 20px',
+          padding: 'var(--space-20) var(--space-3)',
           background: 'var(--bg)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: 'var(--space-12)' }}>
             <h1
               style={{
-                fontSize: 'clamp(28px, 5vw, 44px)',
-                fontWeight: 800,
+                fontSize: 'var(--text-5xl)',
+                fontWeight: 700,
                 color: 'var(--text)',
-                margin: '0 0 16px',
+                margin: '0 0 var(--space-3)',
               }}
             >
               {tx.title}
             </h1>
             <p
               style={{
-                fontSize: '18px',
+                fontSize: 'var(--text-lg)',
                 color: 'var(--text-muted)',
                 margin: 0,
-                maxWidth: '500px',
+                maxWidth: '600px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
               }}
@@ -118,41 +118,40 @@ export default function Contact() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '40px',
-              marginBottom: '60px',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: 'var(--space-3)',
+              marginBottom: 'var(--space-12)',
             }}
           >
             {/* Contact Info Cards */}
             <div
               style={{
-                padding: '32px 24px',
-                background: 'var(--bg-card)',
+                padding: 'var(--space-6)',
+                background: 'var(--bg)',
                 border: '1px solid var(--border)',
-                borderRadius: '16px',
+                borderRadius: 'var(--border-radius)',
               }}
             >
-              <div style={{ fontSize: '32px', marginBottom: '16px' }}>✉️</div>
+              <div style={{ fontSize: '32px', marginBottom: 'var(--space-3)' }}>✉️</div>
               <h3
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 700,
+                  fontSize: 'var(--text-xl)',
+                  fontWeight: 600,
                   color: 'var(--text)',
-                  margin: '0 0 12px',
+                  margin: '0 0 var(--space-2)',
                 }}
               >
                 {lang === 'fr' ? 'Email' : 'Email'}
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: '0 0 16px' }}>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', margin: '0 0 var(--space-3)' }}>
                 {tx.email24h}
               </p>
               <a
                 href="mailto:support@sellxy.app"
                 style={{
-                  color: 'var(--primary)',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '14px',
+                  color: 'var(--text)',
+                  fontSize: 'var(--text-sm)',
+                  fontWeight: 500,
                 }}
               >
                 {tx.responseEmail} →
@@ -161,24 +160,24 @@ export default function Contact() {
 
             <div
               style={{
-                padding: '32px 24px',
-                background: 'var(--bg-card)',
+                padding: 'var(--space-6)',
+                background: 'var(--bg)',
                 border: '1px solid var(--border)',
-                borderRadius: '16px',
+                borderRadius: 'var(--border-radius)',
               }}
             >
-              <div style={{ fontSize: '32px', marginBottom: '16px' }}>💬</div>
+              <div style={{ fontSize: '32px', marginBottom: 'var(--space-3)' }}>💬</div>
               <h3
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 700,
+                  fontSize: 'var(--text-xl)',
+                  fontWeight: 600,
                   color: 'var(--text)',
-                  margin: '0 0 12px',
+                  margin: '0 0 var(--space-2)',
                 }}
               >
                 {tx.whatsapp}
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: '0 0 16px' }}>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', margin: '0 0 var(--space-3)' }}>
                 {tx.instantSupport}
               </p>
               <a
@@ -186,10 +185,9 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: 'var(--primary)',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '14px',
+                  color: 'var(--text)',
+                  fontSize: 'var(--text-sm)',
+                  fontWeight: 500,
                 }}
               >
                 {lang === 'fr' ? 'Ouvrir WhatsApp' : 'Open WhatsApp'} →
@@ -198,24 +196,24 @@ export default function Contact() {
 
             <div
               style={{
-                padding: '32px 24px',
-                background: 'var(--bg-card)',
+                padding: 'var(--space-6)',
+                background: 'var(--bg)',
                 border: '1px solid var(--border)',
-                borderRadius: '16px',
+                borderRadius: 'var(--border-radius)',
               }}
             >
-              <div style={{ fontSize: '32px', marginBottom: '16px' }}>📍</div>
+              <div style={{ fontSize: '32px', marginBottom: 'var(--space-3)' }}>📍</div>
               <h3
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 700,
+                  fontSize: 'var(--text-xl)',
+                  fontWeight: 600,
                   color: 'var(--text)',
-                  margin: '0 0 12px',
+                  margin: '0 0 var(--space-2)',
                 }}
               >
                 {tx.office}
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0 }}>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', margin: 0 }}>
                 {lang === 'fr' ? 'Bientôt disponible' : 'Coming soon'}
               </p>
             </div>
@@ -226,21 +224,21 @@ export default function Contact() {
             style={{
               maxWidth: '600px',
               margin: '0 auto',
-              padding: '40px',
-              background: 'var(--bg-card)',
+              padding: 'var(--space-6)',
+              background: 'var(--bg)',
               border: '1px solid var(--border)',
-              borderRadius: '16px',
+              borderRadius: 'var(--border-radius)',
             }}
           >
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <div>
                 <label
                   style={{
                     display: 'block',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                     fontWeight: 600,
                     color: 'var(--text)',
-                    marginBottom: '8px',
+                    marginBottom: 'var(--space-1)',
                   }}
                 >
                   {tx.name}
@@ -252,25 +250,20 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '14px 18px',
-                    border: '1px solid rgba(249,115,22,0.2)',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    padding: 'var(--space-2)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--border-radius)',
+                    background: 'var(--bg)',
                     color: 'var(--text)',
-                    fontSize: '15px',
+                    fontSize: 'var(--text-base)',
                     boxSizing: 'border-box',
-                    transition: 'all 0.3s',
-                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'border-color 0.2s',
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'var(--primary)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                    e.currentTarget.style.borderColor = 'var(--border)';
                   }}
                   placeholder={lang === 'fr' ? 'Votre nom' : 'Your name'}
                 />
@@ -280,10 +273,10 @@ export default function Contact() {
                 <label
                   style={{
                     display: 'block',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                     fontWeight: 600,
                     color: 'var(--text)',
-                    marginBottom: '8px',
+                    marginBottom: 'var(--space-1)',
                   }}
                 >
                   {tx.email}
@@ -295,25 +288,20 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '14px 18px',
-                    border: '1px solid rgba(249,115,22,0.2)',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    padding: 'var(--space-2)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--border-radius)',
+                    background: 'var(--bg)',
                     color: 'var(--text)',
-                    fontSize: '15px',
+                    fontSize: 'var(--text-base)',
                     boxSizing: 'border-box',
-                    transition: 'all 0.3s',
-                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'border-color 0.2s',
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'var(--primary)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                    e.currentTarget.style.borderColor = 'var(--border)';
                   }}
                   placeholder={lang === 'fr' ? 'votre@email.com' : 'your@email.com'}
                 />
@@ -323,10 +311,10 @@ export default function Contact() {
                 <label
                   style={{
                     display: 'block',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                     fontWeight: 600,
                     color: 'var(--text)',
-                    marginBottom: '8px',
+                    marginBottom: 'var(--space-1)',
                   }}
                 >
                   {tx.subject}
@@ -338,25 +326,20 @@ export default function Contact() {
                   required
                   style={{
                     width: '100%',
-                    padding: '14px 18px',
-                    border: '1px solid rgba(249,115,22,0.2)',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    padding: 'var(--space-2)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--border-radius)',
+                    background: 'var(--bg)',
                     color: 'var(--text)',
-                    fontSize: '15px',
+                    fontSize: 'var(--text-base)',
                     boxSizing: 'border-box',
-                    transition: 'all 0.3s',
-                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'border-color 0.2s',
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'var(--primary)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                    e.currentTarget.style.borderColor = 'var(--border)';
                   }}
                   placeholder={lang === 'fr' ? 'Sujet de votre message' : 'Message subject'}
                 />
@@ -366,10 +349,10 @@ export default function Contact() {
                 <label
                   style={{
                     display: 'block',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                     fontWeight: 600,
                     color: 'var(--text)',
-                    marginBottom: '8px',
+                    marginBottom: 'var(--space-1)',
                   }}
                 >
                   {tx.message}
@@ -381,26 +364,21 @@ export default function Contact() {
                   rows={5}
                   style={{
                     width: '100%',
-                    padding: '14px 18px',
-                    border: '1px solid rgba(249,115,22,0.2)',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    padding: 'var(--space-2)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--border-radius)',
+                    background: 'var(--bg)',
                     color: 'var(--text)',
-                    fontSize: '15px',
+                    fontSize: 'var(--text-base)',
                     boxSizing: 'border-box',
                     fontFamily: 'inherit',
-                    transition: 'all 0.3s',
-                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'border-color 0.2s',
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'var(--primary)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-md), 0 0 0 3px rgba(249,115,22,0.1)';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(249,115,22,0.2)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                    e.currentTarget.style.borderColor = 'var(--border)';
                   }}
                   placeholder={lang === 'fr' ? 'Votre message...' : 'Your message...'}
                 />
@@ -409,12 +387,12 @@ export default function Contact() {
               {status === 'success' && (
                 <div
                   style={{
-                    padding: '12px 16px',
+                    padding: 'var(--space-2)',
                     background: '#ECFDF5',
                     border: '1px solid #BBEFB0',
-                    borderRadius: '8px',
+                    borderRadius: 'var(--border-radius)',
                     color: '#065F46',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                   }}
                 >
                   ✓ {tx.success}
@@ -424,12 +402,12 @@ export default function Contact() {
               {status === 'error' && (
                 <div
                   style={{
-                    padding: '12px 16px',
+                    padding: 'var(--space-2)',
                     background: '#FEF2F2',
                     border: '1px solid #FECACA',
-                    borderRadius: '8px',
+                    borderRadius: 'var(--border-radius)',
                     color: '#991B1B',
-                    fontSize: '14px',
+                    fontSize: 'var(--text-sm)',
                   }}
                 >
                   ✗ {tx.error}
@@ -440,26 +418,23 @@ export default function Contact() {
                 type="submit"
                 disabled={status === 'loading'}
                 style={{
-                  padding: '14px 24px',
-                  background: 'linear-gradient(135deg, #F97316, #EA580C)',
+                  padding: 'var(--space-2) var(--space-4)',
+                  background: status === 'loading' ? 'var(--text-muted)' : 'var(--text)',
                   color: 'white',
                   border: 'none',
-                  borderRadius: '12px',
-                  fontWeight: 600,
-                  fontSize: '16px',
+                  borderRadius: 'var(--border-radius)',
+                  fontWeight: 500,
+                  fontSize: 'var(--text-base)',
                   cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-                  opacity: status === 'loading' ? 0.7 : 1,
-                  transition: 'all 0.3s',
+                  transition: 'opacity 0.2s',
                 }}
                 onMouseEnter={(e) => {
                   if (status !== 'loading') {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 32px rgba(249,115,22,0.3)';
+                    e.currentTarget.style.opacity = '0.8';
                   }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.opacity = '1';
                 }}
               >
                 {status === 'loading' ? tx.sending : tx.send}

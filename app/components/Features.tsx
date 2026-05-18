@@ -7,74 +7,74 @@ export function Features() {
 
   const t = {
     fr: {
-      title: 'Fonctionnalités principales',
-      subtitle: 'Tout ce dont vous avez besoin pour gérer votre commerce',
-      features: [
-        {
-          icon: '📦',
-          title: 'Gestion de stock',
-          desc: 'Ajoutez, modifiez et suivez vos produits avec photos et variantes',
-        },
-        {
-          icon: '💳',
-          title: 'Caisse POS',
-          desc: 'Vendez rapidement avec interface intuitive, remises et paiements flexibles',
-        },
-        {
-          icon: '📊',
-          title: 'Statistiques',
-          desc: 'Visualisez vos ventes en temps réel avec graphiques et rapports',
-        },
-        {
-          icon: '🚚',
-          title: 'Commandes',
-          desc: 'Suivez les livraisons de la commande à la livraison',
-        },
-        {
-          icon: '👥',
-          title: 'Multi-utilisateurs',
-          desc: 'Gérez vos employés avec rôles (Propriétaire, Caissier)',
-        },
-        {
-          icon: '🌍',
-          title: 'International',
-          desc: 'Disponible en français et anglais avec devises locales',
-        },
-      ],
-    },
-    en: {
-      title: 'Main features',
-      subtitle: 'Everything you need to manage your business',
+      title: 'Everything you need',
+      subtitle: 'All-in-one platform to manage your business',
       features: [
         {
           icon: '📦',
           title: 'Inventory Management',
-          desc: 'Add, edit and track products with photos and variants',
+          desc: 'Track products with photos and variants',
         },
         {
           icon: '💳',
           title: 'POS Checkout',
-          desc: 'Sell quickly with intuitive interface and flexible payments',
+          desc: 'Fast and flexible payment processing',
         },
         {
           icon: '📊',
           title: 'Real-time Analytics',
-          desc: 'Visualize your sales with charts and detailed reports',
+          desc: 'Visualize sales with charts and reports',
         },
         {
           icon: '🚚',
           title: 'Order Tracking',
-          desc: 'Track deliveries from order placement to delivery',
+          desc: 'Track deliveries from order to delivery',
         },
         {
           icon: '👥',
           title: 'Multi-user',
-          desc: 'Manage employees with role-based access control',
+          desc: 'Manage employees with role-based access',
         },
         {
           icon: '🌍',
           title: 'International',
-          desc: 'Available in English and French with local currencies',
+          desc: 'Available in French and English',
+        },
+      ],
+    },
+    en: {
+      title: 'Everything you need',
+      subtitle: 'All-in-one platform to manage your business',
+      features: [
+        {
+          icon: '📦',
+          title: 'Inventory Management',
+          desc: 'Track products with photos and variants',
+        },
+        {
+          icon: '💳',
+          title: 'POS Checkout',
+          desc: 'Fast and flexible payment processing',
+        },
+        {
+          icon: '📊',
+          title: 'Real-time Analytics',
+          desc: 'Visualize sales with charts and reports',
+        },
+        {
+          icon: '🚚',
+          title: 'Order Tracking',
+          desc: 'Track deliveries from order to delivery',
+        },
+        {
+          icon: '👥',
+          title: 'Multi-user',
+          desc: 'Manage employees with role-based access',
+        },
+        {
+          icon: '🌍',
+          title: 'International',
+          desc: 'Available in French and English',
         },
       ],
     },
@@ -83,122 +83,79 @@ export function Features() {
   const tx = t[lang];
 
   return (
-    <section style={{
-      padding: '80px 20px',
+    <section id="features" style={{
+      padding: 'var(--space-16) var(--space-3)',
       background: 'var(--bg)',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        {/* Header */}
+        <div style={{
+          textAlign: 'center',
+          marginBottom: 'var(--space-12)',
+        }}>
           <h2 style={{
-            fontSize: 'clamp(28px, 5vw, 44px)',
-            fontWeight: 800,
+            fontSize: 'var(--text-5xl)',
+            fontWeight: 700,
             color: 'var(--text)',
-            margin: '0 0 16px',
+            margin: '0 0 var(--space-3)',
           }}>
             {tx.title}
           </h2>
           <p style={{
-            fontSize: '18px',
+            fontSize: 'var(--text-lg)',
             color: 'var(--text-muted)',
             margin: 0,
-            maxWidth: '500px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
           }}>
             {tx.subtitle}
           </p>
         </div>
 
+        {/* Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '24px',
+          gap: 'var(--space-3)',
         }}>
           {tx.features.map((feature, idx) => (
             <div
               key={idx}
               style={{
-                padding: '40px 32px',
-                background: 'rgba(255, 255, 255, 0.6)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(249,115,22,0.15)',
-                borderRadius: '20px',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                cursor: 'pointer',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)',
-                animation: `fadeInUp 0.6s ease-out ${idx * 0.1}s both`,
+                padding: 'var(--space-6)',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--border-radius)',
+                transition: 'border-color 0.2s',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'var(--primary)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-xl), var(--glow-primary)';
-                e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(249,115,22,0.15)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.6)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.borderColor = 'var(--border)';
               }}
             >
-              {/* Gradient hover effect overlay */}
               <div style={{
-                position: 'absolute',
-                top: 0,
-                left: '-100%',
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(90deg, transparent, rgba(249,115,22,0.05), transparent)',
-                transition: 'left 0.5s',
-                pointerEvents: 'none',
-              }} />
-
-              {/* Icon with gradient background */}
-              <div style={{
-                fontSize: '48px',
-                marginBottom: '20px',
-                display: 'inline-block',
-                padding: '16px',
-                background: 'linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.10))',
-                borderRadius: '16px',
-                boxShadow: 'inset 0 2px 8px rgba(249,115,22,0.1)',
+                fontSize: '32px',
+                marginBottom: 'var(--space-3)',
               }}>
                 {feature.icon}
               </div>
 
               <h3 style={{
-                fontSize: '20px',
-                fontWeight: 700,
+                fontSize: 'var(--text-xl)',
+                fontWeight: 600,
                 color: 'var(--text)',
-                margin: '0 0 12px',
-                letterSpacing: '-0.01em',
+                margin: '0 0 var(--space-2)',
               }}>
                 {feature.title}
               </h3>
 
               <p style={{
-                fontSize: '15px',
+                fontSize: 'var(--text-sm)',
                 color: 'var(--text-muted)',
                 margin: 0,
-                lineHeight: 1.7,
+                lineHeight: 1.6,
               }}>
                 {feature.desc}
               </p>
-
-              {/* Bottom accent line */}
-              <div style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: '3px',
-                background: 'linear-gradient(90deg, transparent, var(--primary), transparent)',
-                opacity: 0,
-                transition: 'opacity 0.3s',
-              }} />
             </div>
           ))}
         </div>

@@ -44,170 +44,128 @@ export function Footer() {
 
   return (
     <footer style={{
-      background: 'linear-gradient(to bottom, var(--bg) 0%, var(--bg-card) 50%)',
-      borderTop: '1px solid rgba(249,115,22,0.1)',
-      padding: '80px 20px 40px',
-      position: 'relative',
-      overflow: 'hidden',
+      borderTop: '1px solid var(--border)',
+      padding: 'var(--space-12) var(--space-3) var(--space-6)',
+      background: 'var(--bg)',
     }}>
-      {/* Decorative gradient orb */}
-      <div style={{
-        position: 'absolute',
-        bottom: '-200px',
-        right: '-100px',
-        width: '500px',
-        height: '500px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(249,115,22,0.08), transparent 70%)',
-        filter: 'blur(80px)',
-        pointerEvents: 'none',
-      }} />
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '40px',
-          marginBottom: '60px',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: 'var(--space-8)',
+          marginBottom: 'var(--space-8)',
         }}>
-          {/* Produit */}
+          {/* Product */}
           <div>
             <h4 style={{
-              fontSize: '14px',
-              fontWeight: 700,
+              fontSize: 'var(--text-sm)',
+              fontWeight: 600,
               color: 'var(--text)',
-              marginBottom: '20px',
+              marginBottom: 'var(--space-3)',
               textTransform: 'uppercase',
-              letterSpacing: '0.08em',
+              letterSpacing: '0.05em',
             }}>
               {tx.product}
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li>
-                <a href="#features" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.features}
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.pricing}
-                </a>
-              </li>
-              <li>
-                <a href="#faq" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.faq}
-                </a>
-              </li>
-            </ul>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              <a href="#features" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.features}
+              </a>
+              <a href="#pricing" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.pricing}
+              </a>
+              <a href="/faq" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.faq}
+              </a>
+            </div>
           </div>
 
-          {/* Légal */}
+          {/* Legal */}
           <div>
             <h4 style={{
-              fontSize: '14px',
-              fontWeight: 700,
+              fontSize: 'var(--text-sm)',
+              fontWeight: 600,
               color: 'var(--text)',
-              marginBottom: '20px',
+              marginBottom: 'var(--space-3)',
               textTransform: 'uppercase',
-              letterSpacing: '0.08em',
+              letterSpacing: '0.05em',
             }}>
               {tx.legal}
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li>
-                <a href="/privacy" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.privacy}
-                </a>
-              </li>
-              <li>
-                <a href="/terms" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.terms}
-                </a>
-              </li>
-            </ul>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              <a href="/privacy" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.privacy}
+              </a>
+              <a href="/terms" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.terms}
+              </a>
+            </div>
           </div>
 
           {/* Support */}
           <div>
             <h4 style={{
-              fontSize: '14px',
-              fontWeight: 700,
+              fontSize: 'var(--text-sm)',
+              fontWeight: 600,
               color: 'var(--text)',
-              marginBottom: '20px',
+              marginBottom: 'var(--space-3)',
               textTransform: 'uppercase',
-              letterSpacing: '0.08em',
+              letterSpacing: '0.05em',
             }}>
               {tx.support}
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li>
-                <a href="mailto:support@sellxy.app" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.email}
-                </a>
-              </li>
-              <li>
-                <a href="#contact" style={{
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s',
-                }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                  {tx.contact}
-                </a>
-              </li>
-            </ul>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              <a href="mailto:support@sellxy.app" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.email}
+              </a>
+              <a href="/contact" style={{
+                fontSize: 'var(--text-sm)',
+                color: 'var(--text-muted)',
+                transition: 'color 0.2s',
+              }}>
+                {tx.contact}
+              </a>
+            </div>
           </div>
 
           {/* Brand */}
           <div>
             <h4 style={{
-              fontSize: '14px',
-              fontWeight: 700,
+              fontSize: 'var(--text-sm)',
+              fontWeight: 600,
               color: 'var(--text)',
-              marginBottom: '20px',
+              marginBottom: 'var(--space-3)',
               textTransform: 'uppercase',
-              letterSpacing: '0.08em',
+              letterSpacing: '0.05em',
             }}>
               SellXY
             </h4>
             <p style={{
-              fontSize: '14px',
+              fontSize: 'var(--text-sm)',
               color: 'var(--text-muted)',
               margin: 0,
               lineHeight: 1.6,
@@ -219,82 +177,49 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div style={{
           borderTop: '1px solid var(--border)',
-          paddingTop: '40px',
+          paddingTop: 'var(--space-4)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          gap: 'var(--space-3)',
           flexWrap: 'wrap',
-          gap: '20px',
         }}>
           <p style={{
-            fontSize: '13px',
+            fontSize: 'var(--text-sm)',
             color: 'var(--text-muted)',
             margin: 0,
           }}>
             {tx.copyright}
           </p>
 
-          <div style={{
-            display: 'flex',
-            gap: '24px',
-          }}>
+          {/* Social icons */}
+          <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{
-              width: '40px',
-              height: '40px',
+              width: '32px',
+              height: '32px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'rgba(249,115,22,0.1)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              borderRadius: '10px',
-              border: '1px solid rgba(249,115,22,0.2)',
-              color: 'var(--primary)',
-              textDecoration: 'none',
-              fontSize: '18px',
-              transition: 'all 0.3s',
-              boxShadow: 'var(--shadow-sm)',
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #F97316, #EA580C)';
-              e.currentTarget.style.color = 'white';
-              e.currentTarget.style.transform = 'translateY(-3px) rotate(5deg)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-primary)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(249,115,22,0.1)';
-              e.currentTarget.style.color = 'var(--primary)';
-              e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+              border: '1px solid var(--border)',
+              borderRadius: 'var(--border-radius)',
+              color: 'var(--text)',
+              fontSize: '16px',
             }}>
               𝕏
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{
-              width: '40px',
-              height: '40px',
+              width: '32px',
+              height: '32px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'rgba(249,115,22,0.1)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              borderRadius: '10px',
-              border: '1px solid rgba(249,115,22,0.2)',
-              color: 'var(--primary)',
-              textDecoration: 'none',
-              fontSize: '18px',
-              transition: 'all 0.3s',
-              boxShadow: 'var(--shadow-sm)',
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #F97316, #EA580C)';
-              e.currentTarget.style.color = 'white';
-              e.currentTarget.style.transform = 'translateY(-3px) rotate(-5deg)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-primary)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(249,115,22,0.1)';
-              e.currentTarget.style.color = 'var(--primary)';
-              e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+              border: '1px solid var(--border)',
+              borderRadius: 'var(--border-radius)',
+              color: 'var(--text)',
+              fontSize: '16px',
             }}>
               in
             </a>
