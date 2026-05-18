@@ -84,7 +84,9 @@ export function SocialProof() {
               key={idx}
               style={{
                 padding: 'var(--space-4)',
+                background: idx % 2 === 0 ? 'var(--bg)' : 'var(--bg-secondary)',
                 border: '1px solid var(--border)',
+                borderLeft: '3px solid var(--primary)',
                 borderRadius: 'var(--border-radius)',
                 textAlign: 'center',
               }}
@@ -107,26 +109,33 @@ export function SocialProof() {
           ))}
         </div>
 
-        {/* Testimonials */}
+        {/* Testimonials - Varied sizes */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: '1.2fr 1fr 1fr',
           gap: 'var(--space-3)',
+          gridAutoRows: '200px',
         }}>
           {tx.testimonials.map((testimonial, idx) => (
             <div
               key={idx}
               style={{
                 padding: 'var(--space-4)',
+                background: idx === 0 ? 'var(--bg-secondary)' : 'var(--bg)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--border-radius)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                gridColumn: idx === 0 ? 'span 1' : 'span 1',
+                gridRow: idx === 0 ? 'span 2' : 'span 1',
               }}
             >
               <p style={{
-                fontSize: 'var(--text-sm)',
+                fontSize: idx === 0 ? 'var(--text-base)' : 'var(--text-sm)',
                 color: 'var(--text)',
                 fontStyle: 'italic',
-                margin: '0 0 var(--space-3)',
+                margin: 0,
                 lineHeight: 1.6,
               }}>
                 "{testimonial.text}"
@@ -135,6 +144,7 @@ export function SocialProof() {
                 fontSize: 'var(--text-xs)',
                 color: 'var(--primary)',
                 fontWeight: 600,
+                marginTop: 'auto',
               }}>
                 {testimonial.author}
               </div>

@@ -21,6 +21,7 @@ export function Footer() {
       about: 'À propos',
       blog: 'Blog',
       copyright: '© 2026 SellXY. Tous droits réservés.',
+      tagline: 'Simplifiez la gestion de votre commerce mobile.',
     },
     en: {
       product: 'Product',
@@ -37,6 +38,7 @@ export function Footer() {
       about: 'About',
       blog: 'Blog',
       copyright: '© 2026 SellXY. All rights reserved.',
+      tagline: 'Simplify your mobile business management.',
     },
   };
 
@@ -170,9 +172,7 @@ export function Footer() {
               margin: 0,
               lineHeight: 1.6,
             }}>
-              {lang === 'fr'
-                ? 'Simplifiez la gestion de votre commerce mobile.'
-                : 'Simplify your mobile business management.'}
+              {tx.tagline}
             </p>
           </div>
         </div>

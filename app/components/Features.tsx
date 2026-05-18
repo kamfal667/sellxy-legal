@@ -7,38 +7,38 @@ export function Features() {
 
   const t = {
     fr: {
-      title: 'Everything you need',
-      subtitle: 'All-in-one platform to manage your business',
+      title: 'Tout ce dont vous avez besoin',
+      subtitle: 'Plateforme tout-en-un pour gérer votre commerce',
       features: [
         {
           icon: '📦',
-          title: 'Inventory Management',
-          desc: 'Track products with photos and variants',
+          title: 'Gestion d\'inventaire',
+          desc: 'Suivez vos produits avec photos et variantes',
         },
         {
           icon: '💳',
-          title: 'POS Checkout',
-          desc: 'Fast and flexible payment processing',
+          title: 'Caisse enregistreuse',
+          desc: 'Traitement des paiements rapide et flexible',
         },
         {
           icon: '📊',
-          title: 'Real-time Analytics',
-          desc: 'Visualize sales with charts and reports',
+          title: 'Analyses en temps réel',
+          desc: 'Visualisez vos ventes avec graphiques et rapports',
         },
         {
           icon: '🚚',
-          title: 'Order Tracking',
-          desc: 'Track deliveries from order to delivery',
+          title: 'Suivi des commandes',
+          desc: 'Suivez les livraisons de la commande à la livraison',
         },
         {
           icon: '👥',
-          title: 'Multi-user',
-          desc: 'Manage employees with role-based access',
+          title: 'Multi-utilisateurs',
+          desc: 'Gérez vos employés avec accès basé sur les rôles',
         },
         {
           icon: '🌍',
           title: 'International',
-          desc: 'Available in French and English',
+          desc: 'Disponible en français et anglais',
         },
       ],
     },
@@ -110,54 +110,110 @@ export function Features() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'var(--space-3)',
-        }}>
-          {tx.features.map((feature, idx) => (
-            <div
-              key={idx}
-              style={{
-                padding: 'var(--space-6)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--border-radius)',
-                transition: 'border-color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)';
-              }}
-            >
-              <div style={{
-                fontSize: '40px',
-                marginBottom: 'var(--space-3)',
-              }}>
-                {feature.icon}
+        {/* Grid asymétrique: 2 grandes en haut + 4 petites en bas */}
+        <div>
+          {/* Top 2 features - Larger */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 'var(--space-3)',
+            marginBottom: 'var(--space-3)',
+          }}>
+            {tx.features.slice(0, 2).map((feature, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: 'var(--space-6)',
+                  background: idx % 2 === 0 ? 'var(--bg)' : 'var(--bg-secondary)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--border-radius)',
+                  transition: 'border-color 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border)';
+                }}
+              >
+                <div style={{
+                  fontSize: '48px',
+                  marginBottom: 'var(--space-3)',
+                }}>
+                  {feature.icon}
+                </div>
+
+                <h3 style={{
+                  fontSize: 'var(--text-2xl)',
+                  fontWeight: 600,
+                  color: 'var(--text)',
+                  margin: '0 0 var(--space-2)',
+                }}>
+                  {feature.title}
+                </h3>
+
+                <p style={{
+                  fontSize: 'var(--text-base)',
+                  color: 'var(--text-muted)',
+                  margin: 0,
+                  lineHeight: 1.6,
+                }}>
+                  {feature.desc}
+                </p>
               </div>
+            ))}
+          </div>
 
-              <h3 style={{
-                fontSize: 'var(--text-xl)',
-                fontWeight: 600,
-                color: 'var(--text)',
-                margin: '0 0 var(--space-2)',
-              }}>
-                {feature.title}
-              </h3>
+          {/* Bottom 4 features - Smaller */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: 'var(--space-3)',
+          }}>
+            {tx.features.slice(2).map((feature, idx) => (
+              <div
+                key={idx + 2}
+                style={{
+                  padding: 'var(--space-4)',
+                  background: idx % 2 === 0 ? 'var(--bg-secondary)' : 'var(--bg)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--border-radius)',
+                  transition: 'border-color 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border)';
+                }}
+              >
+                <div style={{
+                  fontSize: '36px',
+                  marginBottom: 'var(--space-2)',
+                }}>
+                  {feature.icon}
+                </div>
 
-              <p style={{
-                fontSize: 'var(--text-sm)',
-                color: 'var(--text-muted)',
-                margin: 0,
-                lineHeight: 1.6,
-              }}>
-                {feature.desc}
-              </p>
-            </div>
-          ))}
+                <h3 style={{
+                  fontSize: 'var(--text-sm)',
+                  fontWeight: 600,
+                  color: 'var(--text)',
+                  margin: '0 0 var(--space-1)',
+                }}>
+                  {feature.title}
+                </h3>
+
+                <p style={{
+                  fontSize: '12px',
+                  color: 'var(--text-muted)',
+                  margin: 0,
+                  lineHeight: 1.4,
+                }}>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

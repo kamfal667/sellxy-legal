@@ -27,7 +27,7 @@ export function ProblemSolution() {
   return (
     <section style={{
       padding: 'var(--space-16) var(--space-3)',
-      background: 'var(--bg)',
+      background: 'var(--bg-secondary)',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
@@ -42,15 +42,19 @@ export function ProblemSolution() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: '1fr 1.1fr',
           gap: 'var(--space-8)',
-          alignItems: 'center',
+          alignItems: 'stretch',
         }}>
           {/* Problem */}
           <div style={{
             padding: 'var(--space-6)',
+            background: 'var(--bg)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--border-radius)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
           }}>
             <div style={{
               fontSize: '48px',
@@ -79,9 +83,14 @@ export function ProblemSolution() {
           {/* Solution */}
           <div style={{
             padding: 'var(--space-6)',
-            border: '2px solid var(--primary)',
+            border: '3px solid var(--primary)',
             borderRadius: 'var(--border-radius)',
             background: 'var(--bg)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            position: 'relative',
+            top: '-4px',
           }}>
             <div style={{
               fontSize: '48px',

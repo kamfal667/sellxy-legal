@@ -7,33 +7,34 @@ export function Pricing() {
 
   const t = {
     fr: {
-      title: 'Simple pricing',
-      subtitle: 'Choose the plan that fits you',
+      title: 'Tarification simple',
+      subtitle: 'Choisissez le forfait qui vous convient',
+      popular: 'Le plus populaire',
       plans: [
         {
-          name: 'Free',
+          name: 'Gratuit',
           price: '0',
-          period: ' FCFA/month',
-          description: 'Get started',
-          features: ['100 products', '1 user', 'Unlimited sales', 'Basic stats'],
-          cta: 'Get started',
+          period: ' FCFA/mois',
+          description: 'Commencer',
+          features: ['100 produits', '1 utilisateur', 'Ventes illimitées', 'Statistiques basiques'],
+          cta: 'Commencer',
         },
         {
           name: 'Pro',
           price: '20 000',
-          period: ' FCFA/month',
-          description: 'Most popular',
+          period: ' FCFA/mois',
+          description: 'Le plus populaire',
           popular: true,
-          features: ['Unlimited products', '5 users', 'Advanced analytics', 'CSV export', 'Priority support'],
-          cta: 'Try free for 30 days',
+          features: ['Produits illimités', '5 utilisateurs', 'Analyses avancées', 'Export CSV', 'Support prioritaire'],
+          cta: 'Essayez gratuitement pendant 30 jours',
         },
         {
-          name: 'Enterprise',
+          name: 'Entreprise',
           price: '40 000',
-          period: ' FCFA/month',
-          description: 'For large volumes',
-          features: ['Everything in Pro', 'Multi-store', 'API access', 'Custom integrations', 'Dedicated support'],
-          cta: 'Contact us',
+          period: ' FCFA/mois',
+          description: 'Pour gros volumes',
+          features: ['Tout dans Pro', 'Multi-magasins', 'Accès API', 'Intégrations personnalisées', 'Support dédié'],
+          cta: 'Contactez-nous',
         },
       ],
     },
@@ -111,9 +112,12 @@ export function Pricing() {
               key={idx}
               style={{
                 padding: 'var(--space-6)',
-                border: plan.popular ? '2px solid var(--primary)' : '1px solid var(--border)',
+                background: plan.popular ? 'var(--bg)' : 'var(--bg-secondary)',
+                border: plan.popular ? '3px solid var(--primary)' : '1px solid var(--border)',
                 borderRadius: 'var(--border-radius)',
                 position: 'relative',
+                transform: plan.popular ? 'translateY(-8px)' : 'translateY(0)',
+                transition: 'all 0.2s',
               }}
             >
               {/* Badge */}
@@ -129,7 +133,7 @@ export function Pricing() {
                   fontSize: 'var(--text-xs)',
                   fontWeight: 600,
                 }}>
-                  Popular
+                  {lang === 'fr' ? 'Populaire' : 'Popular'}
                 </div>
               )}
 
@@ -211,9 +215,14 @@ export function Pricing() {
                       gap: 'var(--space-2)',
                       fontSize: 'var(--text-sm)',
                       color: 'var(--text)',
+                      alignItems: 'flex-start',
                     }}
                   >
-                    <span style={{ color: 'var(--primary)' }}>✓</span>
+                    <span style={{
+                      color: 'var(--primary)',
+                      fontWeight: 'bold',
+                      minWidth: '20px',
+                    }}>✓</span>
                     <span>{feature}</span>
                   </div>
                 ))}

@@ -5,6 +5,25 @@ import { useApp } from '../providers';
 export function Navbar() {
   const { lang, setLang, theme, toggleTheme } = useApp();
 
+  const t = {
+    fr: {
+      features: 'Fonctionnalités',
+      pricing: 'Tarification',
+      faq: 'FAQ',
+      contact: 'Contact',
+      download: 'Télécharger',
+    },
+    en: {
+      features: 'Features',
+      pricing: 'Pricing',
+      faq: 'FAQ',
+      contact: 'Contact',
+      download: 'Download',
+    },
+  };
+
+  const tx = t[lang];
+
   return (
     <nav style={{
       position: 'sticky',
@@ -45,10 +64,10 @@ export function Navbar() {
           gap: 'var(--space-6)',
           fontSize: 'var(--text-sm)',
         }}>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
+          <a href="#features">{tx.features}</a>
+          <a href="#pricing">{tx.pricing}</a>
+          <a href="/faq">{tx.faq}</a>
+          <a href="/contact">{tx.contact}</a>
         </div>
 
         {/* Controls */}
@@ -119,7 +138,7 @@ export function Navbar() {
           onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
           onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            {lang === 'fr' ? 'Télécharger' : 'Download'}
+            {tx.download}
           </button>
         </div>
       </div>

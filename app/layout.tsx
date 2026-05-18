@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <style>{`
           :root {
             --bg: #FFFFFF;
+            --bg-secondary: #FAFAFA;
             --text: #000000;
             --text-muted: #666666;
             --border: #E5E5E5;

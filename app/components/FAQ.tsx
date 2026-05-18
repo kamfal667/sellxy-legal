@@ -91,6 +91,7 @@ export function FAQ() {
             <div
               key={idx}
               style={{
+                background: idx % 2 === 0 ? 'var(--bg)' : 'var(--bg-secondary)',
                 border: '1px solid var(--border)',
                 borderRadius: 'var(--border-radius)',
                 overflow: 'hidden',
@@ -103,7 +104,7 @@ export function FAQ() {
                 style={{
                   width: '100%',
                   padding: 'var(--space-3)',
-                  background: 'var(--bg)',
+                  background: 'transparent',
                   border: 'none',
                   cursor: 'pointer',
                   display: 'flex',
@@ -114,14 +115,27 @@ export function FAQ() {
                   fontWeight: 500,
                   color: 'var(--text)',
                   transition: 'all 0.2s',
+                  gap: 'var(--space-3)',
                 }}
               >
-                <span>{item.q}</span>
+                <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center', flex: 1 }}>
+                  <span style={{
+                    fontSize: 'var(--text-sm)',
+                    fontWeight: 700,
+                    color: 'var(--primary)',
+                    minWidth: '30px',
+                  }}>
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span>{item.q}</span>
+                </div>
                 <span
                   style={{
                     fontSize: 'var(--text-sm)',
                     fontWeight: 600,
                     color: 'var(--primary)',
+                    minWidth: '20px',
+                    textAlign: 'right',
                   }}
                 >
                   {openIndex === idx ? '−' : '+'}
