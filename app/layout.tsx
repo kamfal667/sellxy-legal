@@ -2,8 +2,25 @@ import type { Metadata } from 'next';
 import { Providers } from './providers';
 
 export const metadata: Metadata = {
-  title: 'SellXY Stocks — Legal',
-  description: 'Privacy Policy and Terms of Service for SellXY Stocks',
+  title: 'SellXY — Gestion de Stock et POS Mobile',
+  description: 'Gérez votre commerce avec SellXY: inventaire, caisse, statistiques en temps réel. Application mobile iOS et Android pour commerçants et petites entreprises.',
+  keywords: 'gestion stock, pos, caisse, inventaire, mobile, app, commerce, afrique',
+  authors: [{ name: 'SellXY' }],
+  openGraph: {
+    title: 'SellXY — Gestion de Stock et POS Mobile',
+    description: 'Gérez votre commerce en toute simplicité avec SellXY',
+    url: 'https://sellxy.app',
+    siteName: 'SellXY',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SellXY — Gestion de Stock et POS Mobile',
+    description: 'Gérez votre commerce en toute simplicité',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

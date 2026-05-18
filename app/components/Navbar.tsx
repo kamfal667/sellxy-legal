@@ -1,9 +1,37 @@
 'use client';
 
 import { useApp } from '../providers';
+import { useState } from 'react';
 
 export function Navbar() {
   const { lang, setLang, theme, toggleTheme } = useApp();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const t = {
+    fr: {
+      features: 'Fonctionnalités',
+      pricing: 'Tarification',
+      faq: 'FAQ',
+      contact: 'Contact',
+      download: 'Télécharger',
+    },
+    en: {
+      features: 'Features',
+      pricing: 'Pricing',
+      faq: 'FAQ',
+      contact: 'Contact',
+      download: 'Download',
+    },
+  };
+
+  const tx = t[lang];
+
+  const navLinks = [
+    { label: tx.features, href: '#features' },
+    { label: tx.pricing, href: '#pricing' },
+    { label: tx.faq, href: '/faq' },
+    { label: tx.contact, href: '/contact' },
+  ];
 
   return (
     <nav style={{
@@ -13,10 +41,10 @@ export function Navbar() {
       background: 'var(--bg-card)',
       borderBottom: '1px solid var(--border)',
       boxShadow: '0 1px 8px rgba(249,115,22,0.07)',
-      padding: '0 24px',
+      padding: '0 20px',
     }}>
       <div style={{
-        maxWidth: '800px',
+        maxWidth: '1200px',
         margin: '0 auto',
         height: '60px',
         display: 'flex',
@@ -47,8 +75,66 @@ export function Navbar() {
           </div>
         </a>
 
+        {/* Desktop Nav Links */}
+        <div style={{
+          display: 'none',
+          '@media (min-width: 768px)': {
+            display: 'flex',
+          },
+          flexDirection: 'row',
+          gap: '32px',
+          alignItems: 'center',
+        } as any}>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              style={{
+                fontSize: '14px',
+                fontWeight: 500,
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
         {/* Controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Desktop Download Button */}
+          <a
+            href="#"
+            style={{
+              display: 'none',
+              '@media (min-width: 768px)': {
+                display: 'inline-block',
+              },
+              padding: '8px 16px',
+              background: 'linear-gradient(135deg, #F97316, #EA580C)',
+              color: 'white',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '13px',
+              transition: 'all 0.2s',
+            } as any}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(249,115,22,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            {tx.download}
+          </a>
+
           {/* Lang toggle */}
           <div style={{
             display: 'flex',
@@ -98,8 +184,61 @@ export function Navbar() {
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{
+              display: 'flex',
+              '@media (min-width: 768px)': {
+                display: 'none',
+              },
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              border: '1px solid var(--border)',
+              background: 'var(--bg)',
+              cursor: 'pointer',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+            } as any}
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div style={{
+          display: 'flex',
+          '@media (min-width: 768px)': {
+            display: 'none',
+          },
+          flexDirection: 'column',
+          gap: '12px',
+          padding: '16px 0',
+          borderTop: '1px solid var(--border)',
+        } as any}>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                padding: '12px 0',
+                fontSize: '14px',
+                fontWeight: 500,
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
