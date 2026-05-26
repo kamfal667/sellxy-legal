@@ -136,6 +136,8 @@ export function Icon({
     case 'shield': return <svg {...props}><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>;
     case 'headset': return <svg {...props}><path d="M4 15v-3a8 8 0 0116 0v3"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M21 19v1a3 3 0 01-3 3h-3"/></svg>;
     case 'sparkle': return <svg {...props}><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l4 4M14 14l4 4M18 6l-4 4M10 14l-4 4"/></svg>;
+    case 'moon':  return <svg {...props}><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>;
+    case 'sun':   return <svg {...props}><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>;
     case 'logo-apple': return <svg width={props.width} height={props.height} viewBox="0 0 24 24" fill={stroke}><path d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9-1.2-1.7-3-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.4 1-4.3 2.6-1.8 3.2-.5 7.9 1.3 10.5.9 1.3 1.9 2.7 3.3 2.7 1.3-.1 1.9-.9 3.5-.9s2.1.8 3.5.8c1.4 0 2.4-1.3 3.3-2.6.6-.9 1.2-2 1.5-3-3.5-1.3-3.3-3.8-3.3-3.9zM14 5.6c.7-.8 1.2-2 1-3.2-1.1.1-2.4.8-3.1 1.6-.7.7-1.3 2-1.1 3.1 1.2.1 2.5-.7 3.2-1.5z"/></svg>;
     case 'logo-play':  return <svg width={props.width} height={props.height} viewBox="0 0 24 24" fill={stroke}><path d="M3 2.5v19l11-9.5L3 2.5z" opacity=".95"/><path d="M14 12L17.5 9 21.5 11.5c.7.4.7 1.4 0 1.8L17.5 15.5 14 12.5z"/></svg>;
     default: return null;

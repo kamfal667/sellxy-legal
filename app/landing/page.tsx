@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Reveal, CountUp, Icon, Logo, Phone, StoreBadge } from './components/primitives';
 import { FEATURES, STEPS, SCREENS, BENEFITS, COMPARE_ROWS, TESTIMONIALS, FAQS } from './data';
+import { useApp } from '../providers';
 import './globals.css';
 
 const MAX = 1160;
@@ -10,6 +11,7 @@ const MAX = 1160;
 export default function LandingPage() {
   const [store, setStore] = useState<'apple' | 'play'>('apple');
   const downloads = 5240;
+  const { theme } = useApp();
 
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--ink)', width: '100%', overflow: 'hidden' }}>
@@ -31,6 +33,8 @@ export default function LandingPage() {
 
 // ─── Nav ───────────────────────────────────────────────────────────────
 function DesktopNav() {
+  const { theme, toggleTheme } = useApp();
+
   return (
     <header style={{ borderBottom: '1px solid var(--line)', background: 'var(--bg)' }}>
       <div style={{ maxWidth: MAX, margin: '0 auto', padding: '18px 32px', display: 'flex', alignItems: 'center', gap: 32 }}>
@@ -41,6 +45,13 @@ function DesktopNav() {
           ))}
         </nav>
         <div style={{ flex: 1 }} />
+        <button
+          onClick={toggleTheme}
+          className="btn btn-ghost btn-sm"
+          title={theme === 'light' ? 'Passer en mode sombre' : 'Passer en mode clair'}
+          style={{ width: 36, height: 36, padding: 0, borderRadius: '50%' }}>
+          <Icon name={theme === 'light' ? 'moon' : 'sun'} size={18} />
+        </button>
         <button className="btn btn-ghost btn-sm">Se connecter</button>
         <button className="btn btn-cta btn-sm">
           <Icon name="arrow-down" size={14} />
