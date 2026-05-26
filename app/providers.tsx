@@ -30,8 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedLang = (localStorage.getItem('sellxy-lang') as Lang) || 'fr';
-    const savedTheme = (localStorage.getItem('sellxy-theme') as Theme) ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const savedTheme = (localStorage.getItem('sellxy-theme') as Theme) || 'light';
     setLangState(savedLang);
     setTheme(savedTheme);
     setMounted(true);
