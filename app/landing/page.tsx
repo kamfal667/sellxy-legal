@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Reveal, CountUp, Icon, Logo, Phone, StoreBadge } from './components/primitives';
 import { FEATURES, STEPS, SCREENS, BENEFITS, COMPARE_ROWS, TESTIMONIALS, FAQS } from './data';
 import { useApp } from '../providers';
@@ -525,15 +526,27 @@ function DesktopCTA({ store, setStore }: { store: 'apple' | 'play'; setStore: (s
 
 // ─── Footer ───────────────────────────────────────────────────────────
 function DesktopFooter() {
-  const product = ['Fonctionnalités', 'Démo', 'Tarifs', 'Nouveautés', 'Statut du service'];
-  const company = ['À propos', 'Carrières', 'Presse', 'Partenaires', 'Blog'];
+  const product = [
+    { label: 'Fonctionnalités', href: '#features' },
+    { label: 'Démo', href: '#demo' },
+    { label: 'Tarifs', href: '/pricing' },
+    { label: 'Nouveautés', href: '#' },
+    { label: 'Statut du service', href: '#' },
+  ];
+  const company = [
+    { label: 'À propos', href: '/about' },
+    { label: 'Carrières', href: '#' },
+    { label: 'Presse', href: '#' },
+    { label: 'Partenaires', href: '#' },
+    { label: 'Blog', href: '#' },
+  ];
   const socials = ['FB','IG','TW','WA','LI','YT'];
   const legalInline = [
-    { label: 'CGU',                          href: '#cgu' },
-    { label: 'Politique de confidentialité', href: '#privacy' },
-    { label: 'Mentions légales',             href: '#legal' },
-    { label: 'Cookies',                       href: '#cookies' },
-    { label: 'Accessibilité',                href: '#a11y' },
+    { label: 'CGU',                          href: '/terms' },
+    { label: 'Politique de confidentialité', href: '/privacy' },
+    { label: 'Mentions légales',             href: '/legal' },
+    { label: 'Cookies',                       href: '/cookies' },
+    { label: 'Accessibilité',                href: '/accessibility' },
   ];
   return (
     <footer style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '72px 0 32px', position: 'relative', overflow: 'hidden' }}>
@@ -651,14 +664,14 @@ function DesktopFooter() {
   );
 }
 
-function FooterColD({ title, links, delay = 1 }: { title: string; links: string[]; delay?: number }) {
+function FooterColD({ title, links, delay = 1 }: { title: string; links: Array<{ label: string; href: string }>; delay?: number }) {
   return (
     <Reveal className={`reveal-delay-${delay}`}>
       <div className="hand" style={{ fontSize: 20, color: 'var(--orange)', marginBottom: 14 }}>{title}</div>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
         {links.map((l) => (
-          <li key={l} style={{ fontSize: 15 }}>
-            <a href="#" style={{ textDecoration: 'none', color: 'inherit', opacity: 0.85 }}>{l}</a>
+          <li key={l.label} style={{ fontSize: 15 }}>
+            <Link href={l.href} style={{ textDecoration: 'none', color: 'inherit', opacity: 0.85 }}>{l.label}</Link>
           </li>
         ))}
       </ul>
